@@ -18,6 +18,8 @@ public abstract class AbstractEntity implements IEntity {
 		this.entityLocation = new Point(x,y);
 		
 	}
+	
+	abstract void movement();
 
 	
 

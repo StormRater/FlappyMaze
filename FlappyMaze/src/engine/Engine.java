@@ -1,9 +1,29 @@
 package engine;
 
+import java.awt.Graphics;
+import java.util.Random;
+
 public class Engine {
 
+	Random rnd;
+	Graphics canvas;
+	
+	
 	public Engine() {
-		// TODO Auto-generated constructor stub
+		
+		rnd = new Random();
+		
+		
 	}
+	
+	public void setMappedObjects() {
+		
+	}
+	
+	public void setCanvas(Graphics g) {
+		this.canvas = g;
+	}
+	
+	
 
 }
