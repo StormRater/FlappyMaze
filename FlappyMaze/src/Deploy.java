@@ -1,6 +1,7 @@
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
 import java.util.concurrent.Callable;
 
 import engine.*;
@@ -15,7 +16,8 @@ import entity.*;
  * @author Nicholas Johnson
  *
  */
-public class Deploy extends Applet implements Runnable, Callable {
+public class Deploy extends Applet implements Runnable//, Callable 
+{
     /**
 	 * 
 	 */
@@ -76,7 +78,9 @@ public class Deploy extends Applet implements Runnable, Callable {
 
     @Override
 	public void stop() {
-        //Stop the animating thread.
+        //TODO Rush current data to properties file: Save.
+    	
+    	//Stop the animating thread.
     	
         deployThread = null;
     }
@@ -108,16 +112,20 @@ public class Deploy extends Applet implements Runnable, Callable {
                 Thread.sleep(Math.max(0, 
                                       startTime-System.currentTimeMillis()));
             } catch (InterruptedException e) {
+            	System.out.println("Help!! My paint has been occupied!");
                 break;
             }
         }
     }
 	
 	@Override
-	public void paint(Graphics g) {
+	public void paint(Graphics g)
+	{
 		g.setColor(Color.RED);
 		g.fillRect(++x, y, width, height);
 		setCanvas(g);
+		//AffineTransform.getRotateInstance(30);
+		
 	}
 	
 	//TODO: have other threads have access
@@ -125,7 +133,7 @@ public class Deploy extends Applet implements Runnable, Callable {
 		this.syncedGraphics=set;
 	}
 
-	@Override
+/*	@Override
 	public Boolean call() throws Exception {
 		
 		return true;
@@ -138,5 +146,6 @@ public class Deploy extends Applet implements Runnable, Callable {
 		return null;
 		
 	}
+*/
 
 }
